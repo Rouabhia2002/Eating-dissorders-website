@@ -44,7 +44,26 @@ function Mission() {
             </Card>
           </Grid>
           <Divider sx={{ my: 3 }} />
-          {/* Section 2: Disordered Eating vs. Eating Disorders */}
+          
+          {/* Section 2: What We Do */}
+          <Grid item xs={12}>
+            <Card>
+              <CardContent>
+                <Typography variant="h5" gutterBottom>
+                  What We Do
+                </Typography>
+                <Typography variant="body1" paragraph>
+                  Submissions: Shuno collects the submissions from South Asians around the world so that individuals can express what they have gone through without fear of judgment or invalidation.
+                </Typography>
+                <Typography variant="body1" paragraph>
+                  Resources: Directories for South Asian clinicians who specialize in eating disorders and useful organizations are available if you are seeking treatment or educational references to learn more about the properties of eating disorders.
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Divider sx={{ my: 3 }} />
+
+          {/* Section 3: Disordered Eating vs. Eating Disorders */}
           <Grid item xs={12}>
             <Card>
               <CardContent>
@@ -69,6 +88,21 @@ function Mission() {
                     </Typography>
                   </Grid>
                 </Grid>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Divider sx={{ my: 3 }} />
+
+          {/* Section 4: Why Shuno */}
+          <Grid item xs={12}>
+            <Card>
+              <CardContent>
+                <Typography variant="h5" gutterBottom>
+                  Why Shuno
+                </Typography>
+                <Typography variant="body1" paragraph>
+                  Shuno is the word for “listen” or “hear” in Bengali. The name was chosen to represent listening to the voices of those who haven’t been listened to before. Each person is allowed an empty platform with no possible interruptions present to express what they have gone through and their struggles so others may see this dangerous disorder creep up in themselves before it is too late.
+                </Typography>
               </CardContent>
             </Card>
           </Grid>

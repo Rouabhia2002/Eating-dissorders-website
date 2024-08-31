@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
-const pages = ['About us', 'Submissions', 'Articles', 'Contact'];
+const pages = ['About us', 'Submissions', 'Resources', 'Contact'];
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -34,7 +34,7 @@ function Navbar() {
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/home" // Corrected href
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -45,7 +45,7 @@ function Navbar() {
               textDecoration: 'none',
             }}
           >
-            Eating Disorders
+            Shuno
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -78,11 +78,13 @@ function Navbar() {
               }}
             >
               {pages.map((page) => {
-                const path = page === 'About us' ? '/' : `/${page.replace(/\s+/g, '').toLowerCase()}`;
+                const path = page === 'About us' ? '/about' : `/${page.replace(/\s+/g, '').toLowerCase()}`;
                 return (
                   <MenuItem key={page} onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">
-                      <Link to={path} style={{ textDecoration: 'none', color: 'inherit' }}>{page}</Link>
+                      <Link to={path} style={{ textDecoration: 'none', color: 'inherit' }}>
+                        {page}
+                      </Link>
                     </Typography>
                   </MenuItem>
                 );
@@ -94,7 +96,7 @@ function Navbar() {
             variant="h5"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/home" // Corrected href
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -110,14 +112,16 @@ function Navbar() {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'flex-end' }}>
             {pages.map((page) => {
-              const path = page === 'About us' ? '/' : `/${page.replace(/\s+/g, '').toLowerCase()}`;
+              const path = page === 'About us' ? '/about' : `/${page.replace(/\s+/g, '').toLowerCase()}`;
               return (
                 <Button
                   key={page}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
                 >
-                  <Link to={path} style={{ textDecoration: 'none', color: 'inherit' }}>{page}</Link>
+                  <Link to={path} style={{ textDecoration: 'none', color: 'inherit' }}>
+                    {page}
+                  </Link>
                 </Button>
               );
             })}

@@ -46,34 +46,45 @@ const Sub = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('Submitting form data:', formData); // Log form data being submitted
     try {
       const response = await axios.post('http://localhost:5000/api/submissions', formData);
-      console.log(response.data);
-      setNotification({ message: 'Form submitted successfully!', type: 'success' });
-      setFormData({
-        firstName: '',
-        lastName: '',
-        pronouns: '',
-        email: '',
-        phone: '',
-        ancestry: '',
-        country: '',
-        city: '',
-        ageGroup: '',
-        gender: '',
-        experience: {
-          firstEngagement: '',
-          realization: '',
-          recoveryProcess: '',
-          obstacles: '',
-          impact: ''
-        }
-      });
+      if (response.status === 201) {
+        console.log('Form submitted successfully:', response.data);
+        setNotification({ message: 'Form submitted successfully!', type: 'success' });
+        setFormData({
+          firstName: '',
+          lastName: '',
+          pronouns: '',
+          email: '',
+          phone: '',
+          ancestry: '',
+          country: '',
+          city: '',
+          ageGroup: '',
+          gender: '',
+          experience: {
+            firstEngagement: '',
+            realization: '',
+            recoveryProcess: '',
+            obstacles: '',
+            impact: ''
+          }
+        });
+      } else {
+        throw new Error('Unexpected response code');
+      }
     } catch (error) {
-      console.error('Error submitting form', error);
-      setNotification({ message: 'Error submitting form. Please try again.', type: 'error' });
+      console.error('Error submitting form:', error.response ? error.response.data : error.message);
+      setNotification({
+        message: error.response && error.response.data && error.response.data.error
+          ? error.response.data.error
+          : 'Error submitting form. Please try again later.',
+        type: 'error'
+      });
     }
   };
+  
 
   const handleCloseNotification = () => {
     setNotification({ message: '', type: '' });

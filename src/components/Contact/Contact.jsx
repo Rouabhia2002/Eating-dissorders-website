@@ -13,9 +13,10 @@ const Contact = () => {
       from_name: `${data.firstName} ${data.lastName}`,
       user_email: data.email,
       message: data.comment,
+      to_email: 'anoovasattar@gmail.com'
     };
 
-    emailjs.send('service_6dmgc4o', 'template_ohk53os', templateParams, 'kTaQ8s5HqwiKSJ34N')
+    emailjs.send('service_6dmgc4o', 'template_hlpabah', templateParams, 'kTaQ8s5HqwiKSJ34N')
       .then((response) => {
         console.log('SUCCESS!', response.status, response.text);
         reset();
@@ -29,19 +30,17 @@ const Contact = () => {
 
   return (
     <div className='contact'>
-      <div className='textt'>
+      <div className='contact-text'>
         <h1>Get In Touch With Us</h1>
-        <p>Share some details here. This is a flexible section where you can share anything you want. It could be details or some information.</p>
-        <h3>Address</h3>
-        <p>1245 logement Alger babzouar</p>
+        <p>Share your thoughts or concerns with us. We're here to listen and assist you.</p>
         <div className='contact-info'>
           <h3>Phone</h3>
-          <span>(+213) 555859300</span>
+          <span>360-545-7121</span>
 
           <h3>Email</h3>
-          <span>info@contact.com</span>
+          <span>anoovasattar@gmail.com</span>
         </div>
-        <h3>Social media</h3>
+        <h3>Social Media</h3>
         <div className="social-media">
           <a href="#" className="social-icon"><FaFacebook /></a>
           <a href="#" className="social-icon"><FaLinkedin /></a>
@@ -49,7 +48,7 @@ const Contact = () => {
           <a href="#" className="social-icon"><AiFillYoutube /></a>
         </div>
       </div>
-      <div className='form'>
+      <div className='contact-form'>
         <h3>Contact Form</h3>
         <form onSubmit={handleSubmit(onSubmit)}>
           <label>First Name</label>
