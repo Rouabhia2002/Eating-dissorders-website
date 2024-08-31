@@ -1,0 +1,61 @@
+/* ClinicianDetail.css */
+
+.clinician-detail {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .clinician-detail__name {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .clinician-detail__image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .clinician-detail__contact,
+  .clinician-detail__location,
+  .clinician-detail__description,
+  .clinician-detail__specialties,
+  .clinician-detail__additional-info {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+  
+  .clinician-detail__contact strong,
+  .clinician-detail__location strong,
+  .clinician-detail__description strong,
+  .clinician-detail__specialties strong,
+  .clinician-detail__additional-info strong {
+    font-weight: bold;
+  }
+  
+  .clinician-detail__website {
+    display: block;
+    margin-top: 15px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .clinician-detail__website:hover {
+    text-decoration: underline;
+  }
+  
+  .clinician-detail__error {
+    text-align: center;
+    font-size: 1.2rem;
+    color: red;
+  }
+  

@@ -6,7 +6,7 @@ import Export from '../src/pages/Export';
 import Contacte from '../src/pages/Contacte';
 import ResourcesPage from '../src/pages/ResourcesPage';
 import HomePage from '../src/pages/HomePage';
-
+import ClinicPage from './pages/ClinicPage';
 
 const App = () => {
   return (
@@ -18,6 +18,7 @@ const App = () => {
         <Route path="/contact" element={<Contacte />} />
         <Route path="/resources" element={<ResourcesPage />} />
         <Route path="/home" element={<HomePage />} />
+        <Route path="/details" element={<ClinicPage />} />
       </Routes>
     </Router>
   );
