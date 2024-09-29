@@ -1,0 +1,123 @@
+/* Base Styles */
+.get-involved-container {
+    padding: 60px 30px;
+    max-width: 1100px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .get-involved-container:hover {
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Typography */
+  .get-involved-title {
+    font-size: 2.8rem;
+    color: #5A0001;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+  }
+  
+  .get-involved-subtitle {
+    font-size: 1.4rem;
+    color: #222E50;
+    text-align: center;
+    margin-bottom: 45px;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+  
+  .get-involved-section {
+    margin-bottom: 45px;
+  }
+  
+  .get-involved-section h2 {
+    font-size: 2rem;
+    color: #5A0001;
+    margin-bottom: 20px;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 10px;
+  }
+  
+  .get-involved-section h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #E65F5C;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 3px;
+  }
+  
+  .get-involved-section p {
+    font-size: 1.1rem;
+    line-height: 1.75;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* List Styles */
+  .get-involved-section ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .get-involved-section li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #444;
+  }
+  
+  /* Interactive Links */
+  .get-involved-section a {
+    color: #E65F5C;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
+  
+  .get-involved-section a:hover {
+    color: #5A0001;
+    border-bottom: 2px solid #5A0001;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .get-involved-container {
+      padding: 40px 20px;
+    }
+  
+    .get-involved-title {
+      font-size: 2.2rem;
+    }
+  
+    .get-involved-subtitle {
+      font-size: 1.2rem;
+    }
+  
+    .get-involved-section h2 {
+      font-size: 1.8rem;
+    }
+  
+    .get-involved-section p {
+      font-size: 1rem;
+    }
+  }
+  
+  /* Improved Hover Effect */
+  .get-involved-section li::marker {
+    color: #E65F5C;
+    font-size: 1.2rem;
+  }
+  

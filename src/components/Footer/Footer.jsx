@@ -5,8 +5,8 @@ import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
+import EmailIcon from '@mui/icons-material/Email';
+import PhoneIcon from '@mui/icons-material/Phone';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
 function Footer() {
@@ -35,37 +35,46 @@ function Footer() {
               Quick Links
             </Typography>
             <Box sx={{ listStyleType: 'none', padding: 0 }}>
-              <Link href="#" color="inherit" underline="hover" display="block">
+              <Link href="/home" color="inherit" underline="hover" display="block">
                 Home
               </Link>
-              <Link href="#" color="inherit" underline="hover" display="block">
+              <Link href="/about" color="inherit" underline="hover" display="block">
                 About Us
               </Link>
-              <Link href="#" color="inherit" underline="hover" display="block">
+              <Link href="/submissions" color="inherit" underline="hover" display="block">
                 Submissions
               </Link>
-              <Link href="#" color="inherit" underline="hover" display="block">
-                Articles
+              <Link href="/resources" color="inherit" underline="hover" display="block">
+                Resources
               </Link>
-              <Link href="#" color="inherit" underline="hover" display="block">
+              <Link href="/contact" color="inherit" underline="hover" display="block">
                 Contact
               </Link>
             </Box>
           </Grid>
           <Grid item xs={12} md={4}>
             <Typography variant="h6" gutterBottom>
-              Follow Us
+              Contact Us
             </Typography>
-            <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
-              <IconButton color="inherit" href="https://facebook.com" aria-label="Facebook">
-                <FacebookIcon />
-              </IconButton>
-              <IconButton color="inherit" href="https://twitter.com" aria-label="Twitter">
-                <TwitterIcon />
-              </IconButton>
-              <IconButton color="inherit" href="https://instagram.com" aria-label="Instagram">
-                <InstagramIcon />
-              </IconButton>
+            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
+              <Link href="mailto:info@shunoeatingdisorders.com" color="inherit" underline="hover">
+                <IconButton color="inherit" aria-label="Email">
+                  <EmailIcon />
+                </IconButton>
+                Email: info@shunoeatingdisorders.com
+              </Link>
+              <Link href="https://www.instagram.com/shunoeatingdisorders" color="inherit" underline="hover" target="_blank">
+                <IconButton color="inherit" aria-label="Instagram">
+                  <InstagramIcon />
+                </IconButton>
+                Follow us on Instagram! @shunoeatingdisorders
+              </Link>
+              <Link href="tel:+13605457121" color="inherit" underline="hover">
+                <IconButton color="inherit" aria-label="Phone">
+                  <PhoneIcon />
+                </IconButton>
+                Phone: +1 360-545-7121
+              </Link>
             </Box>
           </Grid>
         </Grid>

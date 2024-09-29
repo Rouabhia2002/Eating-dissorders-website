@@ -1,115 +1,88 @@
-import * as React from 'react';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Paper from '@mui/material/Paper';
-import Divider from '@mui/material/Divider';
-import Box from '@mui/material/Box';
-import pic11 from '../../assets/pic11.jpg'; // Adjust extension as needed
-import pic22 from '../../assets/pic22.jpg'; // Adjust extension as needed
+import React from 'react';
+import './Mission.css'; // Importing the CSS file
+import pic11 from '../../assets/pic11.jpg'; 
+import pic22 from '../../assets/pic22.jpg'; 
+import phase from '../../assets/phase.png'; 
+import treatement from '../../assets/treatement.png'; 
+import choice from '../../assets/choice.png'; 
 
-function Mission() {
+const Mission = () => {
   return (
-    <Container maxWidth="lg" sx={{ mt: 4 }}>
-      <Paper elevation={3} sx={{ p: 3 }}>
-        <Grid container spacing={4}>
-          {/* Section 1: Mission */}
-          <Grid item xs={12}>
-            <Card>
-              <CardContent>
-                <Grid container spacing={2}>
-                  <Grid item xs={12} md={6}>
-                    <Box
-                      component="img"
-                      src={pic11}
-                      alt="Mission Image"
-                      sx={{ width: '90%', height: 'auto', borderRadius: 1 }}
-                    />
-                  </Grid>
-                  <Grid item xs={12} md={6}>
-                    <Typography variant="h5" gutterBottom>
-                      Mission
-                    </Typography>
-                    <Typography variant="body1" paragraph>
-                      Disordered Eating in South Asians is an organization aiming to raise awareness of disordered eating in the South Asian diaspora. Submissions are collected from anyone with South Asian ancestry willing to share their experience with this type of illness and then published here to encourage others to seek treatment or simply provide insight into the sociocultural pressures that prevent individuals from accessing care. Because so many people have faced stigma and culturally-incompetent treatment when trying to recover from an eating disorder, I hope that by making these first-hand accounts accessible, people are able to recognize they are not alone in overcoming this.
-                    </Typography>
-                    <Typography variant="body1" paragraph>
-                      In South Asian culture, there are many attitudes that perpetuate eating disorders and, to a surprising extent, encourage them. There is a great deal of research supporting how eating disorders are largely genetic, but it is ultimately a psychobiological disorder and, as such, means that ensuring treatment takes into account personal background is imperative.
-                    </Typography>
-                  </Grid>
-                </Grid>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Divider sx={{ my: 3 }} />
+    <div className="mission-container">
+    <section className="mission-section">
+  <div className="text-image-container">
+    <div className="mission-text">
+      <h1 className="mission-title">Mission</h1>
+      <p>
+        Shuno raises awareness of eating disorders in the South Asian diaspora through submissions from anyone with South Asian ancestry willing to share their experience with this type of illness. They are then published here to encourage others to seek treatment and provide insight into the sociocultural pressures that prevent South Asians from accessing care.
+        <br />
+        <br />
+        Since many have faced stigma and culturally-incompetent treatment when trying to recover from an eating disorder, we want people to recognize they are not alone in overcoming this by creating a space for first-hand accounts to be heard.
+      </p>
+    </div>
+    <div className="mission-image">
+      <img src={pic11} alt="Mission" className="image-style" />
+    </div>
+  </div>
+</section>
+
+
+      {/* What We Do Section */}
+      <section className="what-we-do">
+        <h2 className="section-title">Why Shuno</h2>
+        <p>
+        Shuno is the word for “listen” or “hear” in Bengali. The name was chosen to represent listening to the voices of people who haven’t been listened to before. Through testimonials from people who have struggled with an ED, we strive to show how it is okay to suffer and it is okay to ask for help. 
+        </p>
+      </section>
+      
+      <section className="eating-disorders-section">
+            <h2 className="big-title">Disordered Eating vs. Eating Disorders</h2>
+          </section>
+
+      <div className="eating-disorders-containerr">
+            <div className="disorder-item">
+              <img src={choice} alt="Choice icon" className="disorder-icon" />
+              <h3>Disordered eating</h3>
+              <p>
+              net term for different types of eating behaviors and is situated between normal eating and an eating disorder.               </p>
+            </div>
+            <div className="disorder-item">
+              <img src={phase} alt="Phase icon" className="disorder-icon" />
+              <h3>Eating disorder</h3>
+              <p>
+              a mental illness which people may receive a medical diagnosis for. Disordered eating is a risk factor for an eating disorder. 
+
+</p>
+            </div>
           
-          {/* Section 2: What We Do */}
-          <Grid item xs={12}>
-            <Card>
-              <CardContent>
-                <Typography variant="h5" gutterBottom>
-                  What We Do
-                </Typography>
-                <Typography variant="body1" paragraph>
-                  Submissions: Shuno collects the submissions from South Asians around the world so that individuals can express what they have gone through without fear of judgment or invalidation.
-                </Typography>
-                <Typography variant="body1" paragraph>
-                  Resources: Directories for South Asian clinicians who specialize in eating disorders and useful organizations are available if you are seeking treatment or educational references to learn more about the properties of eating disorders.
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Divider sx={{ my: 3 }} />
+          </div>
 
-          {/* Section 3: Disordered Eating vs. Eating Disorders */}
-          <Grid item xs={12}>
-            <Card>
-              <CardContent>
-                <Grid container spacing={2}>
-                  <Grid item xs={12} md={6}>
-                    <Box
-                      component="img"
-                      src={pic22}
-                      alt="Disordered Eating Image"
-                      sx={{ width: '90%', height: 'auto', borderRadius: 1 }}
-                    />
-                  </Grid>
-                  <Grid item xs={12} md={6}>
-                    <Typography variant="h5" gutterBottom>
-                      Disordered Eating vs. Eating Disorders
-                    </Typography>
-                    <Typography variant="body1" paragraph>
-                      An eating disorder refers to the medical diagnosis, whereas disordered eating is defined as being situated between normal eating and an eating disorder. People with an eating disorder may display disordered eating habits, but not everyone who goes experienced disordered eating will be diagnosed for an eating disorder. The choice to use “disordered eating” as part of the title rather than “eating disorder” was to make the project as inclusive as possible since both are extremely harmful and can lead to death. Because many areas lack proper health systems, there are people who do not get diagnosed for what they go through even if they may meet the medical criteria.
-                    </Typography>
-                    <Typography variant="body1" paragraph>
-                      Everyone deserves treatment regardless of how severe the physical consequences are. Do not diminish your experience because others do not deem you sick enough for intervention or believe it is the victim’s responsibility to “get over it.” You are allowed to suffer and you are allowed to heal without having to justify it to anyone. It is not your fault.
-                    </Typography>
-                  </Grid>
-                </Grid>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Divider sx={{ my: 3 }} />
+          <section className="what-we-do">
+  <h2 className="section-title">What We Do</h2>
+  <div className="what-we-do-container">
+    <div className="circle">
+      <h3>Submissions</h3>
+      <p>
+        Shuno collects the submissions from South Asians around the world so that individuals can express what they have gone through without fear of judgment or invalidation.
+      </p>
+    </div>
+    <div className="circle">
+      <h3>Resources</h3>
+      <p>
+        Directories for South Asian clinicians who specialize in eating disorders and useful organizations are available if you are seeking treatment or educational references to learn more.
+      </p>
+    </div>
+    <div className="circle">
+      <h3>Education</h3>
+      <p>
+        We're currently developing educational materials to be distributed so there is greater understanding of risk factors and recovery options for this disorder
+      </p>
+    </div>
+  </div>
+          </section>
 
-          {/* Section 4: Why Shuno */}
-          <Grid item xs={12}>
-            <Card>
-              <CardContent>
-                <Typography variant="h5" gutterBottom>
-                  Why Shuno
-                </Typography>
-                <Typography variant="body1" paragraph>
-                  Shuno is the word for “listen” or “hear” in Bengali. The name was chosen to represent listening to the voices of those who haven’t been listened to before. Each person is allowed an empty platform with no possible interruptions present to express what they have gone through and their struggles so others may see this dangerous disorder creep up in themselves before it is too late.
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
-      </Paper>
-    </Container>
+    </div>
   );
-}
+};
 
 export default Mission;

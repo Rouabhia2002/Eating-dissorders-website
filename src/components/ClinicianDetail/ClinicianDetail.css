@@ -1,61 +1,103 @@
-/* ClinicianDetail.css */
-
 .clinician-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
     padding: 20px;
-    font-family: Arial, sans-serif;
-    max-width: 800px;
-    margin: auto;
+    width: 800px;
+    margin: 0 auto;
+  }
+  
+  .clinician-detail__info {
+    flex: 1;
   }
   
   .clinician-detail__name {
     font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 15px;
-    text-align: center;
-  }
-  
-  .clinician-detail__image {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    border-radius: 8px;
-    margin: 0 auto;
-    display: block;
+    color: #5A0001;
   }
   
   .clinician-detail__contact,
   .clinician-detail__location,
-  .clinician-detail__description,
-  .clinician-detail__specialties,
-  .clinician-detail__additional-info {
-    font-size: 1rem;
-    margin-bottom: 15px;
-  }
-  
-  .clinician-detail__contact strong,
-  .clinician-detail__location strong,
-  .clinician-detail__description strong,
-  .clinician-detail__specialties strong,
-  .clinician-detail__additional-info strong {
-    font-weight: bold;
-  }
-  
   .clinician-detail__website {
-    display: block;
-    margin-top: 15px;
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-    text-align: center;
+    font-size: 1rem;
+    margin: 10px 0;
   }
   
-  .clinician-detail__website:hover {
-    text-decoration: underline;
+  .clinician-detail__image-container {
+    flex: 0 0 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
-  .clinician-detail__error {
-    text-align: center;
-    font-size: 1.2rem;
-    color: red;
+  .clinician-detail__image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #B22222;
+    object-fit: cover;
   }
+
+ 
+
+  
+  
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+    .clinician-detail {
+      flex-direction: column;
+      width: 100%;
+      height: auto;
+      padding: 15px;
+    }
+  
+    .clinician-detail__image-container {
+      margin-bottom: 15px; /* Add some spacing between image and info */
+      flex: 0 0 auto; /* Allow the container to resize */
+    }
+  
+    .clinician-detail__image {
+      width: 120px;
+      height: 120px; /* Resize image for smaller screens */
+    }
+  
+    .clinician-detail__name {
+      font-size: 1.8rem; /* Slightly reduce font size */
+    }
+  
+    .clinician-detail__contact,
+    .clinician-detail__location,
+    .clinician-detail__website {
+      font-size: 0.9rem; /* Adjust font size for readability on smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .clinician-detail {
+      padding: 10px;
+    }
+  
+    .clinician-detail__name {
+      font-size: 1.5rem; /* Reduce title font size further for small screens */
+    }
+  
+    .clinician-detail__image {
+      width: 100px;
+      height: 100px; /* Further reduce image size for very small screens */
+    }
+  
+    .clinician-detail__contact,
+    .clinician-detail__location,
+    .clinician-detail__website {
+      font-size: 0.8rem; /* Adjust font size further */
+    }
+  }
+  
+  .clinician-detail__description {
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 1.2;
+    color: #333;
+  }
+
   

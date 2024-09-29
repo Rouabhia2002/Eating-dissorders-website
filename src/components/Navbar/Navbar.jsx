@@ -10,9 +10,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 
-const pages = ['About us', 'Submissions', 'Resources', 'Contact'];
+const pages = ['About us', 'Submissions', 'Resources',  'Get Involved','Contact'];
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -26,29 +25,31 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ backgroundColor: '#5A0001' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          {/* Shuno logo for mobile and desktop */}
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="/home" // Corrected href
+            href="/home"
             sx={{
               mr: 2,
-              display: { xs: 'none', md: 'flex' },
+              display: { xs: 'flex', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
+              flexGrow: { xs: 1, md: 0 },
             }}
           >
             Shuno
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          {/* Mobile Menu Icon aligned to the right */}
+          <Box sx={{ display: { xs: 'flex', md: 'none' }, justifyContent: 'flex-end', flexGrow: 1 }}>
             <IconButton
               size="large"
               aria-label="open menu"
@@ -91,25 +92,8 @@ function Navbar() {
               })}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="/home" // Corrected href
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            Eating Disorders
-          </Typography>
+
+          {/* Desktop menu links */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'flex-end' }}>
             {pages.map((page) => {
               const path = page === 'About us' ? '/about' : `/${page.replace(/\s+/g, '').toLowerCase()}`;

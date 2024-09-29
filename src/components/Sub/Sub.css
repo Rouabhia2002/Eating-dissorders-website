@@ -1,102 +1,260 @@
-/* Sub.css */
+/* General Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.7;
+  color: #222;
+}
 
-body {
-    font-family: 'Roboto', sans-serif;
-  }
-  
-  .container {
+/* Page Heading */
+h1 {
+  font-size: 2.5rem;
+  color: #5A0001;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Why Share Section */
+.why-share {
+  background-color: #F6D0B1;
+  padding: 30px;
+  margin: 40px 0;
+  border-left: 8px solid #5A0001;
+  border-radius: 10px;
+  font-size: 1.2rem;
+}
+
+.why-share h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #222E50;
+}
+
+.why-share p {
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.disorder-formula {
+  font-weight: bold;
+  font-style: italic;
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* Experience Section */
+.experience {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 40px 0;
+}
+
+.experience h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #5A0001;
+}
+
+.experience p {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+/* Share Form Section */
+.share-form-container {
+  background-color: #f9f9f9;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  margin: 50px 0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.share-form-container h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  color: #5A0001;
+}
+
+/* Form Styling */
+.share-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.share-form label {
+  font-size: 1.2rem;
+  color: #222E50;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.share-form input,
+.share-form textarea {
+  font-size: 1rem;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  background-color: #fafafa;
+  transition: border 0.3s ease;
+}
+
+.share-form input:focus,
+.share-form textarea:focus {
+  outline: none;
+  border: 2px solid #5A0001;
+  background-color: #fff;
+}
+
+.share-form textarea {
+  resize: none;
+}
+
+/* Call to Action Button */
+.submit-button {
+  background-color: #5A0001;
+  color: #fff;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.submit-button:hover {
+  background-color: #E65F5C;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .share-form-container {
     padding: 20px;
-    max-width: 800px;
-    margin: 25px auto;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
-  
+
+  .why-share,
+  .experience {
+    padding: 20px;
+  }
+
   h1 {
-    color: #333;
-    margin-bottom: 10px;
+    font-size: 2rem;
   }
-  
-  p {
-    color: #666;
-    margin-bottom: 20px;
+
+  h2 {
+    font-size: 1.8rem;
   }
-  
-  form {
-    display: flex;
-    flex-direction: column;
+
+  .share-form input,
+  .share-form textarea {
+    font-size: 1rem;
   }
-  
-  input, textarea {
-    padding: 12px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
-    font-family: 'Roboto', sans-serif;
-  }
-  
-  input:focus, textarea:focus {
-    border-color: #007bff;
-    outline: none;
-  }
-  
-  textarea {
-    resize: vertical;
-    min-height: 80px;
-  }
-  
-  button {
-    padding: 12px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    font-family: 'Roboto', sans-serif;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  .success-message {
-    color: #28a745;
-    margin-top: 20px;
-  }
-  
-  .error-message {
-    color: #dc3545;
-    margin-top: 20px;
-  }
-  
-  .notification {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 15px;
-    background-color: #007bff;
-    color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-  }
-  
-  .notification.success {
-    background-color: #28a745;
-  }
-  
-  .notification.error {
-    background-color: #dc3545;
-  }
-  
-  .notification p {
-    margin: 0;
-    margin-left: 10px;
-  }
-  
+}
+
+/* New Submission Form Styling */
+.submission-container {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin: 40px 0;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.form-grid input {
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.experience-grid textarea {
+  padding: 15px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+}
+
+.experience-grid textarea:focus,
+.form-grid input:focus {
+  border-color: #5A0001;
+  background-color: #fff;
+}
+
+/* Notification Styling */
+.notification {
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notification.success {
+  background-color: #DFF2BF;
+  color: #4F8A10;
+}
+
+.notification.error {
+  background-color: #FFBABA;
+  color: #D8000C;
+}
+
+.notification button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: inherit;
+  cursor: pointer;
+  font-weight: bold;
+}
+.cta-button {
+  display: inline-block;
+  background-color: #5A0001;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+  font-weight: bold; /* Make the text bold */
+  text-align: center;
+}
+
+.cta-button:hover {
+  background-color: #E65F5C;
+}

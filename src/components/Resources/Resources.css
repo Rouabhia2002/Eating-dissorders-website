@@ -20,7 +20,7 @@
 
 .resources__section h2 {
   font-size: 2rem;
-  color: #4caf50;
+  color: #5A0001;
   margin-bottom: 20px;
 }
 
@@ -65,7 +65,7 @@
 .resource-card__details-button {
   display: inline-block;
   padding: 10px 15px;
-  background-color: #4caf50;
+  background-color: #5A0001;
   color: white;
   border-radius: 4px;
   text-decoration: none;
@@ -77,7 +77,7 @@
 
 .resource-card__website:hover,
 .resource-card__details-button:hover {
-  background-color: #45a049;
+  background-color: #ab5e5f;
 }
 
 
@@ -89,13 +89,13 @@
 .resource-card__details {
   /* Add styles for the More Details button */
   color: #fff;
-  background-color: #6c63ff;
+  background-color: #222E50;
   padding: 8px 16px;
   border-radius: 4px;
   text-decoration: none;
 }
 
 .resource-card__details:hover {
-  background-color: #5753d9;
+  background-color: #222E50;
 }
 
