@@ -50,7 +50,6 @@ h1 {
   background-color: #fff;
   padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin: 40px 0;
 }
 
@@ -72,7 +71,6 @@ h1 {
   background-color: #f9f9f9;
   padding: 40px;
   border-radius: 8px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
   margin: 50px 0;
   max-width: 800px;
   margin-left: auto;
@@ -170,7 +168,6 @@ h1 {
   background-color: #fff;
   padding: 40px;
   border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   margin: 40px 0;
   max-width: 900px;
   margin-left: auto;
@@ -257,4 +254,130 @@ h1 {
 
 .cta-button:hover {
   background-color: #E65F5C;
+}
+
+/* Sub.css */
+
+.submission-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #f8f8f8; /* Light background for the form */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.submission-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+}
+
+.intro, .why-share, .experience {
+  margin-bottom: 20px;
+}
+
+h1, h2 {
+  color: #5A0001; /* Use the specified title color */
+  margin-bottom: 15px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #ccc;
+  border-radius: 8px; /* Round edges for a softer look */
+  background-color: #ffffff; /* White background for inputs */
+  font-size: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: #5A0001; /* Highlight border on focus */
+  box-shadow: 0 0 5px rgba(90, 0, 1, 0.5); /* Subtle glow on focus */
+}
+
+button[type="submit"] {
+  background-color: #5A0001; /* Primary button color */
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #E65F5C; /* Lighter shade on hover */
+  transform: translateY(-2px);
+}
+
+/* Notification styles */
+.notification-popup { 
+  position: fixed;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4CAF50; /* Default background color */
+  color: white;
+  padding: 15px 30px;
+  font-size: 16px;
+  border-radius: 5px;
+  z-index: 9999;
+  transition: top 0.5s ease;
+}
+
+.notification-popup.show {
+  top: 20px; /* Visible position */
+}
+
+.flex {
+  display: flex;
+}
+
+
+/* Sub.css */
+
+.submission-container {
+  max-width: 1200px; /* Increase the maximum width of the submission container */
+  margin: 60px auto; /* Add margin-top for spacing above the container */
+  padding: 30px; /* Add some padding for spacing */
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* One column layout */
+  gap: 30px; /* Add more space between input fields */
+}
+
+input[type="email"],
+input[type="text"],
+textarea,
+select {
+  width: 100%; /* Full width for better spacing */
+  height: 70px; /* Increase height for inputs */
+  padding: 15px; /* Add padding for spacing */
+  font-size: 18px; /* Increase font size */
+  border: 2px solid #ccc; /* Thicker border for better visibility */
+  border-radius: 6px; /* Rounded corners */
+  resize: vertical; /* Allow vertical resizing for text areas */
+}
+
+/* Specific styles for the placeholder text to ensure visibility */
+input::placeholder,
+textarea::placeholder {
+  color: #aaa; /* Placeholder color */
+  opacity: 0.8; /* Slightly transparent */
+  font-size: 18px; /* Match font size with input text */
+}
+
+textarea {
+  height: 200px; /* Height for text area to show more text */
 }

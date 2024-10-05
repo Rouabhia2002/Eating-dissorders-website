@@ -8,37 +8,58 @@ router.get('/', async (req, res) => {
   const csvWriter = createCsvWriter({
     path: 'submissions.csv',
     header: [
-      { id: 'firstName', title: 'First Name' },
-      { id: 'lastName', title: 'Last Name' },
-      { id: 'pronouns', title: 'Pronouns' },
       { id: 'email', title: 'Email' },
-      { id: 'phone', title: 'Phone' },
-      { id: 'ancestry', title: 'Ancestry' },
-      { id: 'country', title: 'Country' },
-      { id: 'city', title: 'City' },
+      { id: 'currentCountry', title: 'Current Country' },
+      { id: 'originalCountry', title: 'Original Country' },
       { id: 'ageGroup', title: 'Age Group' },
       { id: 'gender', title: 'Gender' },
-      { id: 'experience.firstEngagement', title: 'First Engagement' },
-      { id: 'experience.realization', title: 'Realization' },
-      { id: 'experience.recoveryProcess', title: 'Recovery Process' },
-      { id: 'experience.obstacles', title: 'Obstacles' },
-      { id: 'experience.impact', title: 'Impact' }
+      { id: 'background', title: 'Background' },
+      { id: 'additionalInfo', title: 'Additional Info' },
+      { id: 'diagnosis.wasDiagnosed', title: 'Was Diagnosed' },
+      { id: 'diagnosis.whoDiagnosed', title: 'Who Diagnosed' },
+      { id: 'symptoms', title: 'Symptoms' },
+      { id: 'barriersToTreatment', title: 'Barriers to Treatment' },
+      { id: 'helpfulTreatment', title: 'Helpful Treatment' },
+      { id: 'accessibility', title: 'Accessibility' },
+      { id: 'otherIdentities', title: 'Other Identities' },
+      { id: 'otherMentalIllnesses', title: 'Other Mental Illnesses' },
+      { id: 'personalityTraits', title: 'Personality Traits' },
+      { id: 'additionalComments', title: 'Additional Comments' },
+      { id: 'consentForPublication', title: 'Consent for Publication' },
+      { id: 'consentForFollowUp', title: 'Consent for Follow-Up' }
     ]
   });
 
   try {
     const submissions = await Submission.find().lean();
+    
+    // Format submissions to match the structure expected by the CSV writer
     const formattedSubmissions = submissions.map(submission => ({
-      ...submission,
-      'experience.firstEngagement': submission.experience.firstEngagement,
-      'experience.realization': submission.experience.realization,
-      'experience.recoveryProcess': submission.experience.recoveryProcess,
-      'experience.obstacles': submission.experience.obstacles,
-      'experience.impact': submission.experience.impact
+      email: submission.email || '',
+      currentCountry: submission.currentCountry || '',
+      originalCountry: submission.originalCountry || '',
+      ageGroup: submission.ageGroup || '',
+      gender: submission.gender || '',
+      background: submission.background || '',
+      additionalInfo: submission.additionalInfo || '',
+      'diagnosis.wasDiagnosed': submission.diagnosis?.wasDiagnosed || '',
+      'diagnosis.whoDiagnosed': submission.diagnosis?.whoDiagnosed || '',
+      symptoms: submission.symptoms || '',
+      barriersToTreatment: submission.barriersToTreatment || '',
+      helpfulTreatment: submission.helpfulTreatment || '',
+      accessibility: submission.accessibility || '',
+      otherIdentities: submission.otherIdentities || '',
+      otherMentalIllnesses: submission.otherMentalIllnesses || '',
+      personalityTraits: submission.personalityTraits || '',
+      additionalComments: submission.additionalComments || '',
+      consentForPublication: submission.consentForPublication ? 'Yes' : 'No',
+      consentForFollowUp: submission.consentForFollowUp || ''
     }));
 
+    // Write the CSV file
     await csvWriter.writeRecords(formattedSubmissions);
 
+    // Send the CSV file as a response
     res.download('submissions.csv', 'submissions.csv', (err) => {
       if (err) {
         console.error('Error downloading the file:', err);

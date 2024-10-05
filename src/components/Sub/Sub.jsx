@@ -1,76 +1,79 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Sub.css'; // Ensure this path is correct
-import myImage from '../../assets/annova.jpg'; // Update the path and name accordingly
 
 const Sub = () => {
+
+
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    pronouns: '',
     email: '',
-    phone: '',
-    ancestry: '',
-    country: '',
-    city: '',
+    currentCountry: '',
+    originalCountry: '',
     ageGroup: '',
     gender: '',
-    experience: {
-      firstEngagement: '',
-      realization: '',
-      recoveryProcess: '',
-      obstacles: '',
-      impact: ''
-    }
+    background: '',
+    additionalInfo: '',
+    diagnosis: {
+      wasDiagnosed: false,
+      whoDiagnosed: ''
+    },
+    symptoms: '',
+    barriersToTreatment: '',
+    helpfulTreatment: '',
+    accessibility: '',
+    otherIdentities: '',
+    otherMentalIllnesses: '',
+    personalityTraits: '',
+    additionalComments: '',
+    consentForPublication: false,
+    consentForFollowUp: ''
   });
 
   const [notification, setNotification] = useState({ message: '', type: '' });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    if (name.startsWith('experience.')) {
-      const experienceField = name.split('.')[1];
+    const { name, value, type, checked } = e.target;
+
+    // If dealing with nested diagnosis object
+    if (name === 'whoDiagnosed') {
       setFormData((prevFormData) => ({
         ...prevFormData,
-        experience: {
-          ...prevFormData.experience,
-          [experienceField]: value
-        }
+        diagnosis: { ...prevFormData.diagnosis, whoDiagnosed: value }
       }));
     } else {
       setFormData((prevFormData) => ({
         ...prevFormData,
-        [name]: value
+        [name]: type === 'checkbox' ? checked : value
       }));
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Submitting form data:', formData); 
     try {
       const response = await axios.post('http://localhost:5000/api/submissions', formData);
       if (response.status === 201) {
-        console.log('Form submitted successfully:', response.data);
         setNotification({ message: 'Form submitted successfully!', type: 'success' });
+        // Reset form data
         setFormData({
-          firstName: '',
-          lastName: '',
-          pronouns: '',
           email: '',
-          phone: '',
-          ancestry: '',
-          country: '',
-          city: '',
+          currentCountry: '',
+          originalCountry: '',
           ageGroup: '',
           gender: '',
-          experience: {
-            firstEngagement: '',
-            realization: '',
-            recoveryProcess: '',
-            obstacles: '',
-            impact: ''
-          }
+          background: '',
+          additionalInfo: '',
+          diagnosis: { wasDiagnosed: false, whoDiagnosed: '' },
+          symptoms: '',
+          barriersToTreatment: '',
+          helpfulTreatment: '',
+          accessibility: '',
+          otherIdentities: '',
+          otherMentalIllnesses: '',
+          personalityTraits: '',
+          additionalComments: '',
+          consentForPublication: false,
+          consentForFollowUp: ''
         });
       } else {
         throw new Error('Unexpected response code');
@@ -142,133 +145,194 @@ const Sub = () => {
 
       <h2 id="submission-form">Submission</h2>
 
+      <div className="submission-container">
+      {notification.message && (
+        <div className={`notification ${notification.type}`}>
+          <p>{notification.message}</p>
+          <button onClick={handleCloseNotification}>&times;</button>
+        </div>
+      )}
+
+      <h1>Submissions</h1>
+
       <form onSubmit={handleSubmit}>
         <div className="form-grid">
           <input
-            type="text"
-            name="firstName"
-            placeholder="First Name"
-            value={formData.firstName}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="text"
-            name="lastName"
-            placeholder="Last Name"
-            value={formData.lastName}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="text"
-            name="pronouns"
-            placeholder="Pronouns"
-            value={formData.pronouns}
-            onChange={handleChange}
-            required
-          />
-          <input
             type="email"
             name="email"
-            placeholder="Email"
+            placeholder="What is your email?"
             value={formData.email}
             onChange={handleChange}
             required
           />
+
           <input
             type="text"
-            name="phone"
-            placeholder="Phone"
-            value={formData.phone}
+            name="currentCountry"
+            placeholder="What country do you live in?"
+            value={formData.currentCountry}
             onChange={handleChange}
             required
           />
+
           <input
             type="text"
-            name="ancestry"
-            placeholder="Ancestry/Race"
-            value={formData.ancestry}
+            name="originalCountry"
+            placeholder="What country did you live in when your symptoms first arose?"
+            value={formData.originalCountry}
             onChange={handleChange}
             required
           />
-          <input
-            type="text"
-            name="country"
-            placeholder="Country"
-            value={formData.country}
+
+          <select name="ageGroup" value={formData.ageGroup} onChange={handleChange} required>
+            <option value="">What is your age group?</option>
+            <option value="Under 18">Under 18</option>
+            <option value="18-25">18-25</option>
+            <option value="26-35">26-35</option>
+            <option value="36-45">36-45</option>
+            <option value="46-55">46-55</option>
+            <option value="56+">56+</option>
+          </select>
+
+          <select name="gender" value={formData.gender} onChange={handleChange} required>
+            <option value="">What is your gender?</option>
+            <option value="Cisgender female">Cisgender female</option>
+            <option value="Cisgender male">Cisgender male</option>
+            <option value="Transgender female">Transgender female</option>
+            <option value="Transgender male">Transgender male</option>
+            <option value="Nonbinary">Nonbinary</option>
+            <option value="Prefer not to answer">Prefer not to answer</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <select name="background" value={formData.background} onChange={handleChange} required>
+            <option value="">What is your background?</option>
+            <option value="Indian">Indian</option>
+            <option value="Bangladeshi">Bangladeshi</option>
+            <option value="Pakistani">Pakistani</option>
+            <option value="Sri Lankan">Sri Lankan</option>
+            <option value="Nepalese">Nepalese</option>
+            <option value="Bhutanese">Bhutanese</option>
+            <option value="Maldivian">Maldivian</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <textarea
+            name="additionalInfo"
+            placeholder="Is there anything else you would like to include about yourself (e.g. sexual orientation, socioeconomic status)?"
+            value={formData.additionalInfo}
+            onChange={handleChange}
+          />
+
+          <select
+            name="whoDiagnosed"
+            value={formData.diagnosis.whoDiagnosed}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Who diagnosed you?</option>
+            <option value="Primary care physician">Primary care physician</option>
+            <option value="Pediatrician">Pediatrician</option>
+            <option value="Mental health provider">Mental health provider</option>
+            <option value="Psychiatrist">Psychiatrist</option>
+            <option value="I wasn't diagnosed">I wasn't diagnosed</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <textarea
+            name="symptoms"
+            placeholder="Please describe the symptoms of your experience and when they began."
+            value={formData.symptoms}
             onChange={handleChange}
             required
           />
-          <input
-            type="text"
-            name="city"
-            placeholder="City"
-            value={formData.city}
+
+          <textarea
+            name="barriersToTreatment"
+            placeholder="Were there any factors that prevented you from accessing treatment?"
+            value={formData.barriersToTreatment}
             onChange={handleChange}
             required
           />
-          <input
-            type="text"
-            name="ageGroup"
-            placeholder="Age Group"
-            value={formData.ageGroup}
+
+          <textarea
+            name="helpfulTreatment"
+            placeholder="If you were able to seek treatment, what helped you?"
+            value={formData.helpfulTreatment}
             onChange={handleChange}
             required
           />
-          <input
-            type="text"
-            name="gender"
-            placeholder="Gender"
-            value={formData.gender}
+
+          <select
+            name="accessibility"
+            value={formData.accessibility}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Rate accessibility to treatment on a scale of 1-10</option>
+            {[...Array(10).keys()].map((num) => (
+              <option key={num} value={num + 1}>{num + 1}</option>
+            ))}
+          </select>
+
+          <textarea
+            name="otherIdentities"
+            placeholder="Please describe any other identities (e.g. athlete, sexual orientation, religion) and how they impacted your experience."
+            value={formData.otherIdentities}
             onChange={handleChange}
             required
           />
+
+          <textarea
+            name="otherMentalIllnesses"
+            placeholder="Are there other mental illnesses that impacted your experience?"
+            value={formData.otherMentalIllnesses}
+            onChange={handleChange}
+            required
+          />
+
+          <textarea
+            name="personalityTraits"
+            placeholder="Were there any personality traits you identify with that impacted your experience?"
+            value={formData.personalityTraits}
+            onChange={handleChange}
+            required
+          />
+
+          <textarea
+            name="additionalComments"
+            placeholder="Is there anything else you would like to add about your experience?"
+            value={formData.additionalComments}
+            onChange={handleChange}
+          />
+
+          <label>
+            <input
+              type="checkbox"
+              name="consentForPublication"
+              checked={formData.consentForPublication}
+              onChange={handleChange}
+              required
+            />
+            I consent to having my experience published and demographic information added to a database.
+          </label>
+
+          <select
+            name="consentForFollowUp"
+            value={formData.consentForFollowUp}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Do you consent to being contacted for follow-up?</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
         </div>
 
-        <h2>My Experience</h2>
-        <div className="experience-grid">
-          <textarea
-            name="experience.firstEngagement"
-            placeholder="When do you remember having first started engaging in an eating disorder or related behavior? What led up to it?"
-            value={formData.experience.firstEngagement}
-            onChange={handleChange}
-            required
-          />
-          <textarea
-            name="experience.realization"
-            placeholder="When did you realize the ill consequences of this?"
-            value={formData.experience.realization}
-            onChange={handleChange}
-            required
-          />
-          <textarea
-            name="experience.recoveryProcess"
-            placeholder="What was the recovery/healing process like?"
-            value={formData.experience.recoveryProcess}
-            onChange={handleChange}
-            required
-          />
-          <textarea
-            name="experience.obstacles"
-            placeholder="Were there any major obstacles in recovery?"
-            value={formData.experience.obstacles}
-            onChange={handleChange}
-            required
-          />
-          <textarea
-            name="experience.impact"
-            placeholder="How did this experience impact your relationship with yourself, others, or how you saw the world?"
-            value={formData.experience.impact}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <button type="submit" className="submit-button">Submit</button>
+        <button type="submit">Submit</button>
       </form>
+    </div>
 
-      <img src={myImage} alt="anoova" className="image-style" />
     </div>
   );
 };

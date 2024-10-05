@@ -47,7 +47,6 @@
   width: 300px; /* Fixed width for equal columns */
   padding: 20px;
   text-align: center; /* Center the text inside the column */
-  display: flex;
   flex-direction: column;
   justify-content: center; /* Center the content vertically */
 }

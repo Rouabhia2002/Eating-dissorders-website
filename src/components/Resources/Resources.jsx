@@ -7,7 +7,6 @@ import pic3 from '../../assets/KatyaViswanadhan.jpg';
 import pic4 from '../../assets/MeharAhuja.jpg';
 import pic5 from '../../assets/NatashaWahi.jpg';
 import pic6 from '../../assets/RunjhunPandit.jpg';
-import pic7 from '../../assets/SaminaQureshi.png';
 
 
 
@@ -150,9 +149,10 @@ const Resources = () => {
                   Visit Website
                 </a>
               )}
-              <button onClick={() => handleMoreDetails(clinician)}>
-                More Details
-              </button>
+             <button className="more-details-button" onClick={() => handleMoreDetails(clinician)}>
+  More Details
+</button>
+
             </div>
           ))}
         </div>

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Submission = require('../models/Submission');
 
-// POST route to handle form submissions
+// POST - Create a new submission
 router.post('/', async (req, res) => {
   try {
     const newSubmission = new Submission(req.body);

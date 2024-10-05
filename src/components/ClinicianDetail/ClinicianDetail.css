@@ -1,103 +1,127 @@
 .clinician-detail {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 20px;
-    width: 800px;
-    margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 2rem auto; /* Updated margin-top for better spacing */
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.clinician-detail__info {
+  flex: 1;
+  padding-right: 2rem;
+  color: #222;
+}
+
+.clinician-detail__name {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #5A0001;
+  margin-bottom: 1rem;
+}
+
+.clinician-detail__contact,
+.clinician-detail__location,
+.clinician-detail__website {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  color: #333;
+}
+
+.clinician-detail__website {
+  color: #0073e6;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.clinician-detail__website:hover {
+  color: #005bb5;
+}
+
+.clinician-detail__image-container {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clinician-detail__image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 4px solid #5A0001;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.clinician-detail__image:hover {
+  transform: scale(1.05);
+}
+
+.clinician-detail__description {
+  margin-top: 2.5rem; /* Improved margin-top for better spacing */
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* Email and Contact inside the description bolded */
+.clinician-detail__description strong {
+  font-weight: bold;
+  color: #222; /* Stronger color for better emphasis */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .clinician-detail {
+      flex-direction: column;
+      padding: 1.5rem;
   }
-  
+
   .clinician-detail__info {
-    flex: 1;
+      padding-right: 0;
   }
-  
+
+  .clinician-detail__image-container {
+      margin-bottom: 1.5rem;
+  }
+
+  .clinician-detail__image {
+      width: 150px;
+      height: 150px;
+  }
+
   .clinician-detail__name {
-    font-size: 2rem;
-    color: #5A0001;
+      font-size: 2rem;
   }
-  
+
   .clinician-detail__contact,
   .clinician-detail__location,
   .clinician-detail__website {
-    font-size: 1rem;
-    margin: 10px 0;
+      font-size: 1rem;
   }
-  
-  .clinician-detail__image-container {
-    flex: 0 0 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+}
+
+@media (max-width: 480px) {
+  .clinician-detail {
+      padding: 1rem;
   }
-  
+
   .clinician-detail__image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 3px solid #B22222;
-    object-fit: cover;
-  }
-
- 
-
-  
-  
-  /* Media query for smaller screens */
-  @media (max-width: 768px) {
-    .clinician-detail {
-      flex-direction: column;
-      width: 100%;
-      height: auto;
-      padding: 15px;
-    }
-  
-    .clinician-detail__image-container {
-      margin-bottom: 15px; /* Add some spacing between image and info */
-      flex: 0 0 auto; /* Allow the container to resize */
-    }
-  
-    .clinician-detail__image {
       width: 120px;
-      height: 120px; /* Resize image for smaller screens */
-    }
-  
-    .clinician-detail__name {
-      font-size: 1.8rem; /* Slightly reduce font size */
-    }
-  
-    .clinician-detail__contact,
-    .clinician-detail__location,
-    .clinician-detail__website {
-      font-size: 0.9rem; /* Adjust font size for readability on smaller screens */
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .clinician-detail {
-      padding: 10px;
-    }
-  
-    .clinician-detail__name {
-      font-size: 1.5rem; /* Reduce title font size further for small screens */
-    }
-  
-    .clinician-detail__image {
-      width: 100px;
-      height: 100px; /* Further reduce image size for very small screens */
-    }
-  
-    .clinician-detail__contact,
-    .clinician-detail__location,
-    .clinician-detail__website {
-      font-size: 0.8rem; /* Adjust font size further */
-    }
-  }
-  
-  .clinician-detail__description {
-    margin-top: 20px;
-    font-size: 16px;
-    line-height: 1.2;
-    color: #333;
+      height: 120px;
   }
 
-  
+  .clinician-detail__name {
+      font-size: 1.6rem;
+  }
+
+  .clinician-detail__contact,
+  .clinician-detail__location,
+  .clinician-detail__website {
+      font-size: 0.9rem;
+  }
+}

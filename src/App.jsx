@@ -18,7 +18,7 @@ const App = () => {
         <Route path="/export-csv" element={<Export />} />
         <Route path="/contact" element={<Contacte />} />
         <Route path="/resources" element={<ResourcesPage />} />
-        <Route path="/home" element={<HomePage />} />
+        <Route path="" element={<HomePage />} />
         <Route path="/details" element={<ClinicPage />} />
         <Route path="/getinvolved" element={<GetPage />} />
       </Routes>

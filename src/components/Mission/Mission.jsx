@@ -1,10 +1,8 @@
 import React from 'react';
 import './Mission.css'; // Importing the CSS file
 import pic11 from '../../assets/pic11.jpg'; 
-import pic22 from '../../assets/pic22.jpg'; 
-import phase from '../../assets/phase.png'; 
-import treatement from '../../assets/treatement.png'; 
-import choice from '../../assets/choice.png'; 
+import disorderedeating from '../../assets/disorderedeating.png'; 
+import eatingdisorder from '../../assets/eatingdisorder.png'; 
 
 const Mission = () => {
   return (
@@ -41,13 +39,13 @@ const Mission = () => {
 
       <div className="eating-disorders-containerr">
             <div className="disorder-item">
-              <img src={choice} alt="Choice icon" className="disorder-icon" />
+              <img src={disorderedeating} alt="Choice icon" className="disorder-icon" />
               <h3>Disordered eating</h3>
               <p>
               net term for different types of eating behaviors and is situated between normal eating and an eating disorder.               </p>
             </div>
             <div className="disorder-item">
-              <img src={phase} alt="Phase icon" className="disorder-icon" />
+              <img src={eatingdisorder} alt="Phase icon" className="disorder-icon" />
               <h3>Eating disorder</h3>
               <p>
               a mental illness which people may receive a medical diagnosis for. Disordered eating is a risk factor for an eating disorder. 

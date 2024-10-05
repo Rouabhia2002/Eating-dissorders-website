@@ -159,32 +159,6 @@ p {
   color: #000000;
   font-weight: 400;
 }
-
-@media (max-width: 768px) {
-  .what-we-do-container {
-    flex-direction: column;
-    gap: 30px;
-  }
-  
-  .circle {
-    width: 220px;
-    height: auto;
-    padding: 20px;
-    margin-right: 0;
-    margin-left: 0;
-  }
-  
-  .circle h3 {
-    font-size: 1.5rem;
-  }
-  
-  .circle p {
-    font-size: 1rem;
-  }
-}
-
-
-/* Media Queries for smaller screens */
 @media (max-width: 768px) {
   .text-image-container {
     flex-direction: column;
@@ -217,21 +191,62 @@ p {
     height: auto;
   }
 
+  
+}
+
+/* Media Queries for screens up to 768px */
+@media (max-width: 935px) {
+  .what-we-do-section {
+    padding: 40px 0; /* Reduced padding for smaller screens */
+  }
+
   .what-we-do-container {
-    flex-direction: column;
-    gap: 20px;
+    flex-direction: column; /* Stack circles vertically */
+    align-items: center; /* Center align the circles */
+    gap: 30px; /* Increase gap between stacked circles */
   }
 
   .circle {
-    width: 200px;
-    height: 200px;
+    width: 240px; /* Reduce size of circles for smaller screens */
+    height: 240px;
+    padding: 20px; /* Adjust padding */
+    margin: 0; /* Remove negative margin for overlap */
+    box-shadow:  6px 15px rgba(0, 0, 0, 0.1); /* Slightly reduced shadow */
+    transform: none; /* Disable hover movement on smaller screens */
   }
 
   .circle h3 {
-    font-size: 1.3rem;
+    font-size: 1.6rem; /* Slightly smaller font size */
   }
 
   .circle p {
-    font-size: 0.9rem;
+    font-size: 1rem; /* Reduce font size for text */
+    line-height: 1;
+
   }
 }
+
+/* Media Queries for screens up to 576px (smaller mobile screens) */
+@media (max-width: 576px) {
+  .what-we-do-section {
+    padding: 30px 0; /* Further reduce padding */
+  }
+
+  .circle {
+    width: 200px; /* Further reduce circle size for mobile */
+    height: 200px;
+    padding: 15px; /* Adjust padding for smaller circles */
+    box-shadow: 4px 12px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+  }
+
+  .circle h3 {
+    font-size: 1.4rem; /* Reduce title size further */
+  }
+
+  .circle p {
+    font-size: 0.9rem; /* Smaller text */
+    line-height: 1.15;
+
+  }
+}
+

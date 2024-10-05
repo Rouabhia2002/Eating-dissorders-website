@@ -1,50 +1,35 @@
 import React from 'react';
 
 const ExportCSVButton = () => {
-  const handleExportCSV = async () => {
-    try {
-      const response = await fetch('http://localhost:5000/api/export-csv', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+  const downloadCSV = () => {
+    // Sending request to backend API to fetch the CSV file
+    fetch('http://localhost:5000/api/export-csv')  // Ensure this matches your backend route
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to download CSV');
+        }
+        return response.blob();  // Convert response to blob (binary large object)
+      })
+      .then(blob => {
+        // Create a URL for the blob and download the file
+        const url = window.URL.createObjectURL(new Blob([blob]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'submissions.csv'); // Specify the CSV file name
+        document.body.appendChild(link);
+        link.click(); // Programmatically click the link to start download
+        link.parentNode.removeChild(link); // Clean up by removing the link
+      })
+      .catch(error => {
+        console.error('Error downloading the CSV file:', error);
       });
-
-      if (response.ok) {
-        const blob = await response.blob();
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'submissions.csv';
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-      } else {
-        console.error('Failed to download CSV');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    }
   };
 
   return (
-    <button onClick={handleExportCSV} style={buttonStyle}>Export CSV</button>
+    <button onClick={downloadCSV}>
+      Export CSV
+    </button>
   );
-};
-
-const buttonStyle = {
-  backgroundColor: '#4CAF50', // Green background
-  border: 'none',
-  color: 'white',
-  padding: '15px 32px',
-  textAlign: 'center',
-  textDecoration: 'none',
-  display: 'inline-block',
-  fontSize: '16px',
-  margin: '4px 2px',
-  cursor: 'pointer',
-  borderRadius: '12px',
-  transition: 'background-color 0.3s ease',
 };
 
 export default ExportCSVButton;

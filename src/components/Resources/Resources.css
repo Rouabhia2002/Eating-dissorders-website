@@ -99,3 +99,24 @@
   background-color: #222E50;
 }
 
+.more-details-button {
+  background-color: #cecece; /* Light grey background */
+  color: #333; /* Dark text for contrast */
+  padding: 10px 20px; /* Vertical and horizontal padding */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Slightly rounded corners */
+  font-size: 16px; /* Font size */
+  font-weight: 500; /* Medium weight for text */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.more-details-button:hover {
+  background-color: #e0e0e0; /* Slightly darker grey on hover */
+  transform: translateY(-1px); /* Slight lift effect on hover */
+}
+
+.more-details-button:active {
+  transform: translateY(0); /* Reset position on click */
+}
