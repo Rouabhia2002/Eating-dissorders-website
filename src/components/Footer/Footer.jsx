@@ -35,7 +35,7 @@ function Footer() {
               Quick Links
             </Typography>
             <Box sx={{ listStyleType: 'none', padding: 0 }}>
-              <Link href="/home" color="inherit" underline="hover" display="block">
+              <Link href="/" color="inherit" underline="hover" display="block">
                 Home
               </Link>
               <Link href="/about" color="inherit" underline="hover" display="block">

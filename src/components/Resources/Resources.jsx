@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './Resources.css'; // Ensure you have a CSS file for styling
 import pic1 from '../../assets/AliaAzmat.webp'; // Example: Adjust the image paths
 import pic2 from '../../assets/FatemaJivanjeeShakir.jpg';
-import pic3 from '../../assets/KatyaViswanadhan.jpg';
+import pic3 from '../../assets/SaminaQureshi.png';
 import pic4 from '../../assets/MeharAhuja.jpg';
 import pic5 from '../../assets/NatashaWahi.jpg';
 import pic6 from '../../assets/RunjhunPandit.jpg';
@@ -16,7 +16,7 @@ const clinicians = [
     contact: "info@mysahaaya-healingandwellness.com, +1 (509) 426-3173",
     location: "Seattle, WA, USA",
     website: "N/A",
-    image: pic1, // Add the image for Natasha Wahi
+    image: pic5, // Add the image for Natasha Wahi
     description: `
 
     Natasha Wahi is a licensed mental health counselor (LMHC) and a licensed professional counselor and the founder of MySahaaya Healing and Wellness, PLLC.
@@ -64,7 +64,7 @@ media at @therapytalkswithtash.
     contact: "therapywithdr.alia@gmail.com",
     location: "Decatur, GA, USA",
     website: "https://www.therapywithdralia.com/",
-    image: pic3,
+    image: pic1,
     description: "" // Add Alia's description if available
   },
   {
@@ -72,7 +72,7 @@ media at @therapytalkswithtash.
     contact: "runjhun@wellbeingden.com",
     location: "Seattle, WA, USA",
     website: "https://www.wellbeingden.com/",
-    image: pic4,
+    image: pic6,
     description: `
 Runjhun Pandit, LPCC, LMHC, LPC, is a Licensed Mental Health Clinician specializing in Perinatal and Postpartum Support, Eating Disorders, Anxiety, and Depression, career support. Her professional journey has been deeply shaped by her commitment to creating a safe, non-judgmental, and inclusive therapeutic environment where individuals can explore their innermost thoughts and feelings. She draws upon a range of evidence-based therapeutic modalities which include Cognitive Behavioral Therapy (CBT), Dialectical Behavior Therapy (DBT), and Acceptance and Commitment Therapy (ACT). 
 
@@ -88,7 +88,7 @@ See her website at www.wellbeingden.com or email her at contact@wellbeingden.com
     contact: "mehar@gayatherapy.com",
     location: "New York, NY, USA",
     website: "https://www.gayatherapy.com/mehar",
-    image: pic5,
+    image: pic4,
     description: `
     Growing up in India and later assimilating into American culture, Mehar Ahuja has first-hand experience with the complex and often challenging process of navigating two vastly different worlds. This journey has deeply influenced her understanding and approach to therapy, particularly in recognizing how cultural and environmental factors can impact an individual's relationship with food and body image. 
 
@@ -104,7 +104,7 @@ Accepting new clients.
     contact: "wholesomestartrd@gmail.com",
     location: "Houston, TX, USA",
     website: "https://www.wholesomestart.com/dietitian-samina",
-    image: pic6,
+    image: pic3,
     description: `
 Samina Qureshi is a weight-inclusive GI Dietitian and founder of Wholesome Start, her virtual nutrition and communications practice. She specializes in helping people find balance with food and gain relief from gastrointestinal (GI) disorders without rigid diets, guilt, or shame. Samina encourages her community to embrace their cultural foods and traditions, recognizing the importance of food as a source of nourishment, connection, and joy. While working with her clients, she noticed an undeniable overlap between eating disorders and GI conditions. She has presented at dietetic conferences to raise awareness about the intersection of eating disorders and GI conditions within diverse communities. Samina has been featured on Great Day Houston, is on the Review Board for VeryWell Fit, and regularly contributes to publications such as Self, Wall Street Journal, Houston Chronicle, Food & Nutrition Magazine, Well + Good, and EveryDay Health. Outside her professional pursuits, Samina finds joy in simple pleasures like sipping chai, connecting with nature, and spending time with her family. Visit her at www.wholesomestart.com and connect with her on social media at @inclusive.IBS.dietitian.
 Samina works with people who struggle with their relationship with food to gain relief from the following GI disorders:

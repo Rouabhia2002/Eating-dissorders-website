@@ -108,3 +108,37 @@
 .flex{
   display: flex;
 }
+
+
+@media (max-width: 768px) {
+  .contact {
+    flex-direction: column; /* Change to column layout */
+    align-items: center; /* Center items vertically */
+    padding: 10px; /* Adjust padding */
+  }
+
+  .contact-text, .contact-form {
+    width: 100%; /* Full width for both sections */
+    margin-bottom: 20px; /* Add space between the two sections */
+  }
+
+  .contact-text h1 {
+    font-size: 1.5em; /* Smaller font size for mobile */
+  }
+
+  .contact-form h3 {
+    font-size: 1.2em; /* Adjust form title size */
+  }
+  
+  .contact-form input, .contact-form textarea {
+    font-size: 14px; /* Smaller input size for mobile */
+  }
+
+  .social-media {
+    justify-content: center; /* Center social icons on mobile */
+  }
+
+  .notification-popup {
+    font-size: 14px; /* Adjust notification font size for smaller screens */
+  }
+}
