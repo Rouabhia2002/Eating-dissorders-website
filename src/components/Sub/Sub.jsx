@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; 
 import axios from 'axios';
 import './Sub.css'; // Ensure this path is correct
 
 const Sub = () => {
-
+  const [submitted, setSubmitted] = useState(false); // New state to track submission
 
   const [formData, setFormData] = useState({
     email: '',
@@ -13,10 +13,7 @@ const Sub = () => {
     gender: '',
     background: '',
     additionalInfo: '',
-    diagnosis: {
-      wasDiagnosed: false,
-      whoDiagnosed: ''
-    },
+    wasDiagnosed: '',
     symptoms: '',
     barriersToTreatment: '',
     helpfulTreatment: '',
@@ -33,27 +30,46 @@ const Sub = () => {
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-
-    // If dealing with nested diagnosis object
-    if (name === 'whoDiagnosed') {
-      setFormData((prevFormData) => ({
-        ...prevFormData,
-        diagnosis: { ...prevFormData.diagnosis, whoDiagnosed: value }
-      }));
-    } else {
-      setFormData((prevFormData) => ({
-        ...prevFormData,
-        [name]: type === 'checkbox' ? checked : value
-      }));
-    }
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: type === 'checkbox' ? checked : value,
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const dataToSend = {
+      email: formData.email,
+      currentCountry: formData.currentCountry,
+      originalCountry: formData.originalCountry,
+      ageGroup: formData.ageGroup,
+      gender: formData.gender,
+      background: formData.background,
+      additionalInfo: formData.additionalInfo,
+      wasDiagnosed: formData.wasDiagnosed,
+      symptoms: formData.symptoms,
+      barriersToTreatment: formData.barriersToTreatment,
+      helpfulTreatment: formData.helpfulTreatment,
+      accessibility: formData.accessibility,
+      otherIdentities: formData.otherIdentities,
+      otherMentalIllnesses: formData.otherMentalIllnesses,
+      personalityTraits: formData.personalityTraits,
+      additionalComments: formData.additionalComments,
+      consentForPublication: formData.consentForPublication,
+      consentForFollowUp: formData.consentForFollowUp,
+    };
+
     try {
-      const response = await axios.post('http://localhost:5000/api/submissions', formData);
-      if (response.status === 201) {
+      const response = await axios.post('https://api.web3forms.com/submit', {
+        ...dataToSend,
+        access_key: '25d0a3cf-0ef8-4c2b-bca5-91d9e7f8a781' // Replace with your access key
+      });
+
+      if (response.data.success) {
         setNotification({ message: 'Form submitted successfully!', type: 'success' });
+        setSubmitted(true); // Set submitted to true after successful submission
+
         // Reset form data
         setFormData({
           email: '',
@@ -63,7 +79,7 @@ const Sub = () => {
           gender: '',
           background: '',
           additionalInfo: '',
-          diagnosis: { wasDiagnosed: false, whoDiagnosed: '' },
+          wasDiagnosed: '',
           symptoms: '',
           barriersToTreatment: '',
           helpfulTreatment: '',
@@ -80,8 +96,8 @@ const Sub = () => {
       }
     } catch (error) {
       setNotification({
-        message: error.response && error.response.data && error.response.data.error
-          ? error.response.data.error
+        message: error.response && error.response.data && error.response.data.message
+          ? error.response.data.message
           : 'Error submitting form. Please try again later.',
         type: 'error'
       });
@@ -101,6 +117,7 @@ const Sub = () => {
         </div>
       )}
       <h1>Submissions</h1>
+      {/* Intro Section */}
       <div className="intro">
         <p>
           If you are South Asian and willing to share your experience with an eating disorder and/or disordered eating, please use the following form. 
@@ -114,6 +131,7 @@ const Sub = () => {
 
       <a href="#submission-form" className="cta-button">share my experience</a>
 
+      {/* Why Share Section */}
       <div className="why-share">
         <h2>Why should you share your experience?</h2>
         <p>
@@ -130,6 +148,7 @@ const Sub = () => {
         </p>
       </div>
 
+      {/* Experience Section */}
       <div className="experience">
         <h2>My Experience</h2>
         <p>
@@ -145,18 +164,9 @@ const Sub = () => {
 
       <h2 id="submission-form">Submission</h2>
 
-      <div className="submission-container">
-      {notification.message && (
-        <div className={`notification ${notification.type}`}>
-          <p>{notification.message}</p>
-          <button onClick={handleCloseNotification}>&times;</button>
-        </div>
-      )}
-
-      <h1>Submissions</h1>
-
       <form onSubmit={handleSubmit}>
         <div className="form-grid">
+          {/* Form Fields */}
           <input
             type="email"
             name="email"
@@ -178,7 +188,7 @@ const Sub = () => {
           <input
             type="text"
             name="originalCountry"
-            placeholder="What country did you live in when your symptoms first arose?"
+            placeholder="What country did you live in when your symptoms first arose? (If it was different from where you are now)"
             value={formData.originalCountry}
             onChange={handleChange}
             required
@@ -194,54 +204,42 @@ const Sub = () => {
             <option value="56+">56+</option>
           </select>
 
-          <select name="gender" value={formData.gender} onChange={handleChange} required>
-            <option value="">What is your gender?</option>
-            <option value="Cisgender female">Cisgender female</option>
-            <option value="Cisgender male">Cisgender male</option>
-            <option value="Transgender female">Transgender female</option>
-            <option value="Transgender male">Transgender male</option>
-            <option value="Nonbinary">Nonbinary</option>
-            <option value="Prefer not to answer">Prefer not to answer</option>
-            <option value="Other">Other</option>
-          </select>
-
-          <select name="background" value={formData.background} onChange={handleChange} required>
-            <option value="">What is your background?</option>
-            <option value="Indian">Indian</option>
-            <option value="Bangladeshi">Bangladeshi</option>
-            <option value="Pakistani">Pakistani</option>
-            <option value="Sri Lankan">Sri Lankan</option>
-            <option value="Nepalese">Nepalese</option>
-            <option value="Bhutanese">Bhutanese</option>
-            <option value="Maldivian">Maldivian</option>
-            <option value="Other">Other</option>
-          </select>
-
-          <textarea
-            name="additionalInfo"
-            placeholder="Is there anything else you would like to include about yourself (e.g. sexual orientation, socioeconomic status)?"
-            value={formData.additionalInfo}
-            onChange={handleChange}
-          />
-
-          <select
-            name="whoDiagnosed"
-            value={formData.diagnosis.whoDiagnosed}
+          <input
+            type="text"
+            name="gender"
+            placeholder="What is your gender?"
+            value={formData.gender}
             onChange={handleChange}
             required
-          >
-            <option value="">Who diagnosed you?</option>
-            <option value="Primary care physician">Primary care physician</option>
-            <option value="Pediatrician">Pediatrician</option>
-            <option value="Mental health provider">Mental health provider</option>
-            <option value="Psychiatrist">Psychiatrist</option>
-            <option value="I wasn't diagnosed">I wasn't diagnosed</option>
-            <option value="Other">Other</option>
+          />
+
+          <input
+            type="text"
+            name="background"
+            placeholder="What is your background?"
+            value={formData.background}
+            onChange={handleChange}
+            required
+          />
+
+          <input
+            type="text"
+            name="additionalInfo"
+            placeholder="Is there anything about yourself that you would like to include and wasn't included above? For example, sexual orientation, socioeconomic status, political affiliations, etc."
+            value={formData.additionalInfo}
+            onChange={handleChange}
+            required
+          />
+
+          <select name="wasDiagnosed" value={formData.wasDiagnosed} onChange={handleChange} required>
+            <option value="">Were you officially diagnosed with an eating disorder?</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
           </select>
 
           <textarea
             name="symptoms"
-            placeholder="Please describe the symptoms of your experience and when they began."
+            placeholder="What symptoms of an eating disorder have you experienced?"
             value={formData.symptoms}
             onChange={handleChange}
             required
@@ -249,7 +247,7 @@ const Sub = () => {
 
           <textarea
             name="barriersToTreatment"
-            placeholder="Were there any factors that prevented you from accessing treatment?"
+            placeholder="Did you face any barriers to getting treatment? If so, please describe."
             value={formData.barriersToTreatment}
             onChange={handleChange}
             required
@@ -257,27 +255,23 @@ const Sub = () => {
 
           <textarea
             name="helpfulTreatment"
-            placeholder="If you were able to seek treatment, what helped you?"
+            placeholder="What aspects of treatment were helpful for you?"
             value={formData.helpfulTreatment}
             onChange={handleChange}
             required
           />
 
-          <select
+          <textarea
             name="accessibility"
+            placeholder="Was the treatment accessible for you (e.g., financially, culturally, geographically)? Please explain."
             value={formData.accessibility}
             onChange={handleChange}
             required
-          >
-            <option value="">Rate accessibility to treatment on a scale of 1-10</option>
-            {[...Array(10).keys()].map((num) => (
-              <option key={num} value={num + 1}>{num + 1}</option>
-            ))}
-          </select>
+          />
 
           <textarea
             name="otherIdentities"
-            placeholder="Please describe any other identities (e.g. athlete, sexual orientation, religion) and how they impacted your experience."
+            placeholder="If you identify with other marginalized groups (e.g., LGBTQ+, disabled), how did these identities impact your experience with an eating disorder?"
             value={formData.otherIdentities}
             onChange={handleChange}
             required
@@ -285,7 +279,7 @@ const Sub = () => {
 
           <textarea
             name="otherMentalIllnesses"
-            placeholder="Are there other mental illnesses that impacted your experience?"
+            placeholder="Have you struggled with other mental illnesses alongside your eating disorder? Please describe."
             value={formData.otherMentalIllnesses}
             onChange={handleChange}
             required
@@ -293,7 +287,7 @@ const Sub = () => {
 
           <textarea
             name="personalityTraits"
-            placeholder="Were there any personality traits you identify with that impacted your experience?"
+            placeholder="Have certain personality traits impacted your experience with an eating disorder? Please describe."
             value={formData.personalityTraits}
             onChange={handleChange}
             required
@@ -301,9 +295,10 @@ const Sub = () => {
 
           <textarea
             name="additionalComments"
-            placeholder="Is there anything else you would like to add about your experience?"
+            placeholder="Is there anything else you would like to share regarding your experience?"
             value={formData.additionalComments}
             onChange={handleChange}
+            required
           />
 
           <label>
@@ -314,25 +309,29 @@ const Sub = () => {
               onChange={handleChange}
               required
             />
-            I consent to having my experience published and demographic information added to a database.
+            I consent to having my submission published on the Shuno website (names will be omitted unless explicitly requested otherwise).
           </label>
 
-          <select
+          <input
+            type="text"
             name="consentForFollowUp"
+            placeholder="Would you be okay with us contacting you for a follow-up interview? Please specify yes or no."
             value={formData.consentForFollowUp}
             onChange={handleChange}
             required
-          >
-            <option value="">Do you consent to being contacted for follow-up?</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
+          />
         </div>
 
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+        {/* Show Submit button only if form has not been submitted */}
+        {!submitted && <button type="submit" className="submit-button">Submit</button>}
 
+        {/* Thank you message displayed after form submission */}
+        {submitted && (
+          <div className="thank-you-message">
+            <h3>Thank you for submitting your story! We will reach out if we need any further information.</h3>
+          </div>
+        )}
+      </form>
     </div>
   );
 };

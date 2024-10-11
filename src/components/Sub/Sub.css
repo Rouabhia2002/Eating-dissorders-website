@@ -381,3 +381,7 @@ textarea::placeholder {
 textarea {
   height: 200px; /* Height for text area to show more text */
 }
+
+.thank-you-message{
+  color: #4c8114;
+}
