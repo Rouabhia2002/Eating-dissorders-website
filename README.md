@@ -13,7 +13,7 @@
 - **Backend**: node.js
 - **Form Submission**: Web3Forms
 - **Contact Form**: EmailJs
-- **Hosting**: [Vercel](https://www.example.com)
+- **Hosting**: [Your Hosting Platform](https://eating-dissorders-website-y3qx.vercel.app/)
 
 ## Contact:
 For any inquiries, please reach out to us at **Rouabhiaamira21@gmail.com**.
