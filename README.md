@@ -1,8 +1,19 @@
-# React + Vite
+# Disordered Eating in South Asians
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## About The Website:
+**Disordered Eating in South Asians** is dedicated to raising awareness and providing resources about disordered eating within the South Asian diaspora. Our goal is to support those affected and offer a platform for sharing experiences and insights.
 
-Currently, two official plugins are available:
+## Features
+- **Submission Form**: Allows users to share their personal experiences regarding disordered eating.
+- **Web3Forms Integration**: Submissions are securely handled through Web3Forms.
+- **CSV Export**: Admins can download submission data as a CSV file for further analysis.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technology Stack
+- **Frontend**: React.js
+- **Backend**: node.js
+- **Form Submission**: Web3Forms
+- **Contact Form**: EmailJs
+- **Hosting**: [Click here to view](https://eating-dissorders-website-y3qx.vercel.app/)
+
+## Contact:
+For any inquiries, please reach out to us at **Rouabhiaamira21@gmail.com**.
