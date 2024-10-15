@@ -361,7 +361,7 @@ input[type="email"],
 input[type="text"],
 textarea,
 select {
-  width: 100%; /* Full width for better spacing */
+  width: 96%; /* Full width for better spacing */
   height: 70px; /* Increase height for inputs */
   padding: 15px; /* Add padding for spacing */
   font-size: 18px; /* Increase font size */
