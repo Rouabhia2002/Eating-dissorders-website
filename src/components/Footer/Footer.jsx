@@ -61,7 +61,7 @@ function Footer() {
                 <IconButton color="inherit" aria-label="Email">
                   <EmailIcon />
                 </IconButton>
-                Email: info@shunoeatingdisorders.com
+                Email: anoovasattar@gmail.com
               </Link>
               <Link href="https://www.instagram.com/shunoeatingdisorders" color="inherit" underline="hover" target="_blank">
                 <IconButton color="inherit" aria-label="Instagram">

@@ -80,14 +80,14 @@ Eating disorders and disordered eating somehow get left out in the discussion of
             <p>
             Shuno began with Anoova Sattar, a Bangladeshi American who underwent her own struggle with anorexia at a young age and felt encouraged to provide resources for others in a similar situation. Despite having had a stable support system, there were still many cultural barriers that prevented her from accessing treatment immediately and she brings attention to the need for early intervention in reducing the prevalence of eating disorders worldwide.             </p>
             <div className="read-more-button-container">
-              <Link to="/submissions" className="read-more-button">Read More</Link>
+              <Link to="/about" className="read-more-button">Read More</Link>
             </div>
           </section>
 
           <section className="join-us">
             <h2>Interested in Joining?</h2>
             <p>
-              We’re always looking for more people interested in furthering our goals! If you would like to join the team, feel free to reach out to <a href="mailto:anoova.sattar@shunoeatingdisorders.com">anoova.sattar@shunoeatingdisorders.com</a> or <a href="mailto:info@shunoeatingdisorders.com">info@shunoeatingdisorders.com</a>.
+              We’re always looking for more people interested in furthering our goals! If you would like to join the team, feel free to reach out to <a href="mailto:anoovasattar@gmail.com">anoovasattar@gmail.com</a> 
             </p>
             <p>We are also in need of translators so the information on this site can be dispersed to non-English speaking individuals.</p>
             <div className="read-more-button-container">

@@ -205,16 +205,19 @@ a:hover {
   background-color: #5A0001;
   color: white;
   padding: 10px 20px;
+  border: 2px solid #5A0001; /* Add border to maintain layout */
   border-radius: 5px;
   text-decoration: none;
   font-size: 1rem;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .submit-button:hover {
   background-color: white;
   color: #E65F5C;
+  border-color: #E65F5C; /* Change border color to match hover */
 }
+
 
 .image-container {
   width: 50%; /* Half the screen width */

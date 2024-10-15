@@ -63,7 +63,7 @@ const Sub = () => {
     try {
       const response = await axios.post('https://api.web3forms.com/submit', {
         ...dataToSend,
-        access_key: '25d0a3cf-0ef8-4c2b-bca5-91d9e7f8a781' // Replace with your access key
+        access_key: '2d86032f-13dd-43fb-8fcc-99303dd54e44' // Replace with your access key
       });
 
       if (response.data.success) {
@@ -121,7 +121,7 @@ const Sub = () => {
       <div className="intro">
         <p>
           If you are South Asian and willing to share your experience with an eating disorder and/or disordered eating, please use the following form. 
-          Feel free to also reach out directly at <a href="tel:+13605457121">+1 360-545-7121</a> or by emailing <a href="mailto:info@shunoeatingdisorders.com">info@shunoeatingdisorders.com</a>.
+          Feel free to also reach out directly at <a href="tel:+13605457121">+1 360-545-7121</a> or by emailing <a href="mailto:anoovasattar@gmail.com">anoovasattar@gmail.com</a>.
         </p>
         <p>
           After a substantial number of responses have been collected, we plan on aggregating them into a map depicting the global impact of eating disorders 
