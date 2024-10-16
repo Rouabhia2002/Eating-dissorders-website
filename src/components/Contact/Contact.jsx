@@ -34,10 +34,10 @@ const Contact = () => {
       </div>
 
       <div className='contact-text'>
-        <h1>Get In Touch With Us</h1>
+        <h2>Get In Touch With Us</h2>
         <p>Share your thoughts or concerns with us. We're here to listen and assist you.</p>
         <div className='contact-info'>
-          <h3>Contact Information</h3>
+          <h3>Contact Information:</h3>
           <h3>Phone</h3>
           <span>+1 360-545-7121</span>
 
@@ -55,7 +55,7 @@ const Contact = () => {
       <hr className='divider' />
 
       <div className='contact-form'>
-        <h3>Contact Form</h3>
+        <h2>Contact Form</h2>
         <form ref={form} onSubmit={sendEmail}>
           <label>Name</label>
           <input type="text" name="user_name" required />

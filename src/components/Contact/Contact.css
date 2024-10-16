@@ -4,14 +4,17 @@
   justify-content: space-between;
   padding: 20px;
 }
-
 .contact-text {
   width: 45%;
+  margin: 0 auto; /* Center the container */
+  line-height: 1.8;
+  font-family: 'Arial', sans-serif;
 }
 
 .contact-text h1 {
   font-size: 2em;
   margin-bottom: 20px;
+  color: #333;
 }
 
 .contact-text p,
@@ -21,30 +24,44 @@
 
 .contact-info h3 {
   margin: 10px 0;
+  font-size: 1.2em;
+}
+
+.contact-info span {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1em;
+  color: #666;
 }
 
 .flex {
-  display: flex; /* Use flexbox layout */
-  align-items: center; /* Align items vertically centered */
-  gap: 10px; /* Space between items */
-  margin-bottom: 20px; /* Optional: space below the flex container */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .social-media {
-  display: flex; /* Ensures icons are also in a row */
-  gap: 10px; /* Optional: space between social icons */
+  display: flex;
+  gap: 10px;
 }
 
 .social-icon {
-  font-size: 24px; /* Icon size */
-  color: #555; /* Icon color */
-  text-decoration: none; /* Remove underline */
+  font-size: 24px;
+  color: #555;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
+.social-icon:hover {
+  color: #000; /* Optional: change color on hover */
+}
 
 .contact-form {
   width: 45%;
-}
+  margin: 0 auto; /* Center the container */
+  line-height: 1.8;
+  font-family: 'Arial', sans-serif;}
 
 .contact-form h3 {
   font-size: 1.5em;

@@ -385,3 +385,22 @@ textarea {
 .thank-you-message{
   color: #4c8114;
 }
+.read-more-btn {
+  background-color: #5A0001;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.read-more-btn:hover {
+  background-color: #F6D0B1;
+}
+
+.read-more-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(90, 0, 1, 0.4);
+}

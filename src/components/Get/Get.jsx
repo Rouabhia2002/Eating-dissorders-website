@@ -20,7 +20,7 @@ const Get = () => {
         </ul>
         <p>
           A position can be arranged based on what you would like to do and your skillset. If you would like to join the team, feel free to reach out to{' '}
-          <a href="mailto:info@shunoeatingdisorders.com">info@shunoeatingdisorders.com</a>.
+          <a href="mailto:anoovasattar@gmail.com">anoovasattar@gmail.com</a>.
         </p>
       </section>
       
@@ -37,7 +37,7 @@ const Get = () => {
         <p>
           Translators are responsible for converting materials related to Shuno into languages spoken among the South Asian diaspora in an easy, accessible way.
           If you are interested in translating our work, please email{' '}
-          <a href="mailto:info@shunoeatingdisorders.com">info@shunoeatingdisorders.com</a>.
+          <a href="mailto:anoovasattar@gmail.com">anoovasattar@gmail.com</a>.
         </p>
       </section>
       
