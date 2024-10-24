@@ -5,6 +5,7 @@
   line-height: 1.8;
   color: #333;
   background-color: #f4f4f4; /* Light background for better contrast */
+  overflow-x: hidden;
 }
 
 /* Center the container and ensure all columns have the same borders */

@@ -5,6 +5,7 @@
   line-height: 1.8;
   color: #333;
   background-color: #f4f4f4;
+  overflow-x: hidden;
 }
 
 /* Section Title Styling */
