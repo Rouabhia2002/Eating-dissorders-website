@@ -6,9 +6,11 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.7;
   color: #222;
-  overflow-x: hidden;
 }
+.submission-container{
+  overflow-x: hidden;
 
+}
 /* Page Heading */
 h1 {
   font-size: 2.5rem;
